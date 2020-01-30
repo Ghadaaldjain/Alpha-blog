@@ -1,24 +1,11 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is the repository for the first Alpha-blog app of the Complete Ruby on Rails Course
 
-Things you may want to cover:
 
-* Ruby version
 
-* System dependencies
+* Ruby version 
+ruby 2.6.3
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* Rails version 
+Rails 5.2.4.1
