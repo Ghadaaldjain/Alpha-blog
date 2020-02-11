@@ -1,22 +1,20 @@
 <p id="notice"><%= notice %></p>
 
 <h1 align="center">
-  <strong>Title:</strong>
+  <b>Title:</b>
   <%= @article.title %>
 </h1>
 <hr/>
-
-
 <div class="well col-xs-8 col-xs-offset-2" align="center">
 	<!-- well = adds a boarder  -->
-  <h1 align="center"><strong>Description:</strong></h1>
+  <h1 align="center"><b>Description:</b></h1>
 
   <%= simple_format(@article.description) %>
 <!--     simple format = This method does not remove the newlines from the text. -->
   <br/>
-  <div>
-    <%= link_to 'Edit  ', edit_article_path(@article), class: "btn btn-primary btn-lg", id: "show-btn"%>
-    <%= link_to 'Back  ', articles_path, class: "btn btn-secondary btn-lg", id: "show-btn" %><br/>
+  <div class="btn">
+    <%= link_to 'Edit  ', edit_article_path(@article), class: "btn btn-primary btn-lg" %>
+    <%= link_to 'Back  ', articles_path ,  class: "btn btn-secondary btn-lg" %><br/>
 
   </div>
 </div>

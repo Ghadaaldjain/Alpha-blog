@@ -9,12 +9,11 @@
 #logo{
 	color: #336699;
 	font-weight:bold;
-	font-size: 2.0em;
+	font-size: 2.5em;
 }
 
 
 #logo:hover {
-	background-color: #FBFBFB;
 	color :#264d73;
 }
 
@@ -22,6 +21,7 @@
 	font-size: 1.35em;
 
 }
+
 
 
 .center {
@@ -33,8 +33,19 @@
 	font-weight:bold;
 	
 }
+#title{
+	font-size: 2.5em;
+	font-weight:bold;	
+	color: #336699;
+}
 
-#show-btn{
+article-body{
+	font-size: 2.1em;
+	color: black;
+	
+}
+
+.btn{
 	color: white;
 }
 
