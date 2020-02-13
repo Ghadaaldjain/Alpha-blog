@@ -15,7 +15,9 @@
   <body>
   
     <%= render 'layouts/navigation' %>
-    <%= yield %>
+    <div id="body">
+      <%= yield %>
+    </div>
     <%= render 'layouts/footer' %>
   </body>
 </html>
