@@ -5,6 +5,7 @@
 
  <br/>
 <h1 class="display-5" align="center">Articles </h1>
+
 <br/>      
   <div class= "list-group" align="center">
     <% @articles.each do |article| %>
@@ -17,12 +18,18 @@
 <!--   the class div is not working in css, id was added -->
         <hr/>
         <div class="article-body">
-           <%= truncate(article.description, length: 100)%>
+          <%= truncate(article.description, length: 100)%>
+          <div class="auther-meta-details">
+            <small>Created by: <%=article.user.username if article.user %>,
+            <%= time_ago_in_words_(articles.created_at)%> ago,
+            last updated: <%= time_ago_in_words_(articles.updated_at)%>ago</small>
+          </div>
+<!--            this method gives a nice format to display the time -->
            <!-- truncate method= display only part of it -->
         </div>
         <br/>
         <br/>
-        <div class="btn" align="right">
+      <div class="btn" align="right">
           <%= link_to 'Edit  ', edit_article_path(article), class: "btn btn-primary "%>
   <!--          remove (@)article beacuse we are in a loop and reffring to each record as article -->
           <%= link_to 'Delete', article , class: "btn btn-secondary ", method: :delete, data: { confirm: 'Are you sure?' }%>
