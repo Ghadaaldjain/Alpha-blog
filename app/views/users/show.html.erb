@@ -1,14 +1,14 @@
-<h1 class="display-5" align="center"><%= @user.username %> Profile</h1>
+
+<p id="notice">
+<%= notice %> 
+</p>
+<h1 class="display-5" align="center"><%= @user.username %> profile</h1>
 <div class="display-5" align="center" >
 	<%= link_to "Edit Profile" , edit_user_path(@user), class:"btn btn-primary btn-lg" %> 
 </div>
 <br>
 <h3 class="display-5" align="center">Articles</h3>
 
-
-  <p id="notice">
-    <%= notice %> 
-  </p>
      
   <div class= "list-group" align="center">
     <% @articles.each do |article| %>
