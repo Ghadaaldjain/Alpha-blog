@@ -41,19 +41,25 @@
 	font-weight:bold;
 	
 }
-#title{
+.title{
 	font-size: 2.6em;
 	color: #336699;
+	margin-top:10px;
 }
 
-.article-body{
+.card-body{
 	font-size: 2.1em;
 	color: black;
 }
 
 .auther-meta-details{
-	border-top: 1px solid grey;
-	margin-top:5px;
+
+	margin-top:10px;
+}	
+
+.auther-meta-details p{
+
+	font-size: 1em;	
 }	
 
 .discription{
@@ -67,7 +73,6 @@
 
 
 footer{
-	
-	border-top: 0.5px solid #BCBDBC;
+	margin: 30px;
 	text-align: center;
 }

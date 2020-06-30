@@ -1,0 +1,34 @@
+<h1 class="display-5" align="center">Authors</h1>
+
+
+  <p id="notice">
+    <%= notice %> 
+  </p>
+
+
+<br/>      
+  <div class= "list-group" align="center">
+    <% @users.each do |user| %>
+     <div class="list-group-item list-group-item-action", align="center">
+
+        <div class="title">
+          <%=link_to user.username, user_path(user)%>
+        </div><br><br>
+
+        <div class="card-body">
+          <%= pluralize(user.articles.count, "article") %><br><br>
+        </div>
+
+
+
+        <div class="auther-meta-details"> 
+          <%= link_to "View profile" , user, class:"btn btn-primary " %>
+          <br/><br>     
+          <p> Joined since: <%= time_ago_in_words(user.created_at)%> ago
+          </p>
+        </div>
+        <br/>
+
+       </div>
+    <% end %>
+  </div>

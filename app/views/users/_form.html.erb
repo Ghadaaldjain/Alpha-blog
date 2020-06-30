@@ -1,0 +1,56 @@
+
+
+
+ <%= form_with(model: user, local: true) do |form| %>
+     <% if user.errors.any? %>
+        <div class="alert alert-danger  col-xs-offset-2" role="alert">
+          <h2 class="alert-heading">
+  <!--           <div id="error_explanation"> -->
+          <%= pluralize(user.errors.count, "error") %> prohibited this user from siging up:
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button></h2>
+          <hr/>
+            <ul>
+              <% user.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+            <% end %>
+            </ul>                    
+        </div>
+    <% end %>
+
+     <div class="col-xs-12" >
+      <div class= "form-group row">
+        <div class="colntrol-label col-sm-2 ">
+           <%= form.label :username , style: "font-weight:bold" %>
+        </div>
+        <div class="col-sm-8">      
+          <%= form.text_field :username ,class: "form-control", placeholder: "Enter a Username", autofocus: true %>
+        </div>
+      </div>
+        <div class= "form-group row">
+        <div class="colntrol-label col-sm-2 ">
+          <%= form.label :email ,style: "font-weight:bold" %>
+        </div>
+        <div class="col-sm-8">
+           <%= form.email_field :email, class: "form-control", placeholder: "Enter an Email" %>
+        </div>
+        </div>
+        <div class= "form-group row">
+        <div class="colntrol-label col-sm-2 ">
+          <%= form.label :password_digest ,style: "font-weight:bold" %>
+        </div>
+        <div class="col-sm-8">
+           <%= form.password_field :password_digest,  class: "form-control", placeholder: "Enter a Password" %>
+        </div>
+        </div>
+        <div class= "form-group row">
+          <div class="col-sm-2">
+            <%= form.submit(@user.new_record? ? "Sign Up" : "Update", class:"btn btn-primary btn-lg", title:"Sign Up" )%>
+            <%= link_to 'Cancel  ', articles_path, class:"btn btn-secondary btn-lg ", style: "font-family:times" %>
+
+          </div>
+        </div>
+      </div>
+
+<% end %>
