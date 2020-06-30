@@ -2,8 +2,8 @@
 
 This project is part of the Complete Ruby on Rails Developer Course
 
-ArtcLe:
-A blog website where people can sign up and start reading and posting artcles.
+ArticLe:
+A blog website where people can sign up and start writing, sharing and reading articles.
 
 
 * Ruby version 
