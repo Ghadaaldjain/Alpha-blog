@@ -15,7 +15,11 @@
 <!--     simple format = This method does not remove the newlines from the text. -->
   <br/>
   <div class="btn">
-    <%= link_to 'Edit  ', edit_article_path(@article), class: "btn btn-primary btn-lg" %>
+
+    <% if logged_in? && @article.user == current_user %>
+      <%= link_to 'Edit  ', edit_article_path(@article), class: "btn btn-primary btn-lg"%>
+      <%= link_to 'Delete', @article , class: "btn btn-secondary  btn-lg ", method: :delete, data: { confirm: 'Are you sure?' }%>
+    <% end %>
     <%= link_to 'Back  ', articles_path ,  class: "btn btn-secondary btn-lg" %><br/>
 
   </div>

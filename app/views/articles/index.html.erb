@@ -24,9 +24,12 @@
         </div><br><br>
  
         <div class="btn" align="right">
+          <%= link_to 'View  ', article_path(article), class: "btn btn-primary "%>
+
+          <% if logged_in? && article.user == current_user %>
           <%= link_to 'Edit  ', edit_article_path(article), class: "btn btn-primary "%>
-  <!--          remove (@)article beacuse we are in a loop and reffring to each record as article -->
           <%= link_to 'Delete', article , class: "btn btn-secondary ", method: :delete, data: { confirm: 'Are you sure?' }%>
+          <% end %>
         </div>
 
 

@@ -4,7 +4,9 @@
 </p>
 <h1 class="display-5" align="center"><%= @user.username %> profile</h1>
 <div class="display-5" align="center" >
-	<%= link_to "Edit Profile" , edit_user_path(@user), class:"btn btn-primary btn-lg" %> 
+	<% if logged_in? && @user == current_user %>
+		<%= link_to "Edit Profile" , edit_user_path(@user), class:"btn btn-primary btn-lg" %> 
+	<% end %>
 </div>
 <br>
 <h3 class="display-5" align="center">Articles</h3>
@@ -13,30 +15,32 @@
   <div class= "list-group" align="center">
     <% @articles.each do |article| %>
      <div class="list-group-item list-group-item-action", align="center">
-<!--       <div class="col-xs-8 col-xs-offset-2">
-       <div class="well well-lg"> -->
+
         <div class="title">
           <%=link_to article.title, article_path(article) ,id:"title"%>
         </div>
-<!--   the class div is not working in css, id was added -->
+
         <hr/>
         <div class="card-body">
           <%= truncate(article.description, length: 100)%><br><br>
 <!--            this method gives a nice format to display the time -->
            <!-- truncate method= display only part of it -->
         </div><br><br>
- 
+  
         <div class="btn" align="right">
-          <%= link_to 'Edit  ', edit_article_path(article), class: "btn btn-primary "%>
-  <!--          remove (@)article beacuse we are in a loop and reffring to each record as article -->
-          <%= link_to 'Delete', article , class: "btn btn-secondary ", method: :delete, data: { confirm: 'Are you sure?' }%>
-        </div>
+          <%= link_to 'View  ', article_path(article), class: "btn btn-primary "%>
 
+          <% if logged_in? && article.user == current_user %>
+
+          <%= link_to 'Edit  ', edit_article_path(article), class: "btn btn-primary "%>
+          <%= link_to 'Delete', article , class: "btn btn-secondary ", method: :delete, data: { confirm: 'Are you sure?' }%>
+          <% end %>
+        </div>
 
         <div class="auther-meta-details">
           <p>Created by: <%=article.user.username if article.user %>,
             <%= time_ago_in_words(article.created_at)%> ago,
-            last updated: <%= time_ago_in_words(article.updated_at)%>ago
+            last updated: <%= time_ago_in_words(article.updated_at)%> ago
           </p>
         </div>
         <br/>
@@ -45,4 +49,6 @@
     <% end %>
   </div>
 <br>
-<%= link_to 'New Article',  new_article_path , id:"btn", class:"btn btn-primary btn-lg"%>
+<% if logged_in? && @user == current_user %>
+	<%= link_to 'New Article',  new_article_path , id:"btn", class:"btn btn-primary btn-lg"%>
+<%end %>
